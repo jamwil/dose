@@ -52,7 +52,10 @@
             <hr text="&copy; Copyright {{ now() | date(format='%Y') }}" />
             <div class="footer-social-media">
                 <a id="toggle-theme"></a>
+                {% set tags = get_taxonomy(kind="tags", required=false) %}
+                {% if tags %}
                 <a href="/tags">Tags</a>
+                {% endif %}
                 {% if config.extra.social_media %}
                 {% for social in config.extra.social_media %}
                     {% if social.rel %}
